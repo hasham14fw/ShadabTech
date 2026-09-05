@@ -141,7 +141,7 @@ export default function About() {
                 In a digital landscape flooded with ephemeral hype, Shadab Technologies focuses on structural reliability, rapid execution, intuitive interfaces, and measurable business outcomes.
               </p>
               <p style={{ fontSize: '0.96rem', color: '#475569', lineHeight: 1.68, marginBottom: '1.85rem' }}>
-                Whether migrating monolithic databases to streamlined MongoDB clusters, authoring responsive React user interfaces, or deploying enterprise AI agents, we execute with ruthless precision.
+                Whether migrating legacy monoliths to high-efficiency cloud clusters, authoring responsive modern interfaces, or deploying enterprise AI systems, we execute with ruthless precision.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.15rem' }}>

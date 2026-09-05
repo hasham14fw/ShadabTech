@@ -21,7 +21,7 @@ export default function Contact() {
     name: '',
     email: '',
     company: '',
-    service: 'Full-Stack MERN Engineering',
+    service: 'Full-Stack Web Engineering',
     budget: '$10k - $25k',
     message: ''
   });
@@ -51,8 +51,8 @@ export default function Contact() {
       a: 'Following our initial technical discovery call and scope alignment, we typically assemble and onboard the dedicated engineering squad within 5 to 7 business days.'
     },
     {
-      q: 'Do you provide frontend-only or full-stack MERN architecture?',
-      a: 'We excel at both! We can construct pixel-perfect, highly responsive React frontend interfaces (like this one) or build end-to-end distributed systems incorporating Node.js APIs, Express microservices, and MongoDB clusters.'
+      q: 'Do you provide frontend-only or full-stack architecture?',
+      a: 'We excel at both! We can construct pixel-perfect, highly responsive modern web interfaces as well as end-to-end distributed backend systems, microservice APIs, and secure database clusters.'
     },
     {
       q: 'Who owns the intellectual property (IP) and source code?',
@@ -327,7 +327,7 @@ export default function Contact() {
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     >
-                      <option value="Full-Stack MERN Engineering">Full-Stack MERN Engineering</option>
+                      <option value="Full-Stack Web Engineering">Full-Stack Web Engineering</option>
                       <option value="Cloud Infrastructure & DevOps">Cloud Infrastructure & DevOps</option>
                       <option value="AI, LLMs & Machine Learning">AI, LLMs & Machine Learning</option>
                       <option value="Cybersecurity & Zero-Trust Defense">Cybersecurity & Zero-Trust Defense</option>

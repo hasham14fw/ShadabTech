@@ -31,12 +31,11 @@ export default function Services() {
 
   const services = [
     {
-      id: 'mern-dev',
+      id: 'web-dev',
       icon: Code2,
-      title: 'Full-Stack MERN Engineering',
-      tagline: 'High-concurrency web systems powered by React 18 & Node.js',
-      description: 'We engineer fast, scalable web applications with sub-second page loads, modular component systems, and resilient database clustering.',
-      tags: ['React 18', 'Node.js API', 'MongoDB Replica', 'Zustand/Redux'],
+      title: 'Full-Stack Web Engineering',
+      tagline: 'High-concurrency web systems engineered for enterprise scale',
+      description: 'We engineer fast, scalable web applications with sub-second page loads, modular component architecture, and resilient database clustering.',
       metric: '< 10ms Latency'
     },
     {
@@ -44,17 +43,15 @@ export default function Services() {
       icon: Cloud,
       title: 'Cloud Infrastructure & DevOps',
       tagline: 'Automated multi-cloud deployments with zero downtime',
-      description: 'We architect containerized ecosystems on AWS and Google Cloud with Kubernetes, infrastructure as code, and continuous self-healing monitoring.',
-      tags: ['AWS & GCP', 'Docker & K8s', 'Terraform', 'CI/CD Automation'],
+      description: 'We architect containerized ecosystems on modern cloud platforms with automated infrastructure, zero-downtime releases, and continuous self-healing monitoring.',
       metric: '99.99% Uptime'
     },
     {
       id: 'ai-ml',
       icon: Cpu,
-      title: 'AI, LLMs & Intelligent Automation',
+      title: 'AI & Intelligent Automation',
       tagline: 'Custom AI agents and cognitive workflows embedded into your product',
-      description: 'Supercharge operations with private vector RAG pipelines, fine-tuned neural models, and autonomous task execution bots.',
-      tags: ['Vector DBs', 'Custom AI Agents', 'RAG Pipelines', 'Predictive Analytics'],
+      description: 'Supercharge operations with private retrieval pipelines, fine-tuned neural models, and autonomous task execution systems.',
       metric: '10x Speedup'
     },
     {
@@ -62,8 +59,7 @@ export default function Services() {
       icon: ShieldCheck,
       title: 'Cybersecurity & Zero-Trust Defense',
       tagline: 'Bank-grade security protocols safeguarding enterprise data',
-      description: 'Enforcing identity verification on every request with modern OAuth2, end-to-end AES-256 encryption, and automated vulnerability auditing.',
-      tags: ['Zero-Trust', 'AES-256', 'OAuth2 / SAML', 'SOC2 Readiness'],
+      description: 'Enforcing identity verification on every request with modern authentication, end-to-end encryption, and automated vulnerability auditing.',
       metric: 'Bank-Grade'
     },
     {
@@ -72,7 +68,6 @@ export default function Services() {
       title: 'Cross-Platform Mobile Engineering',
       tagline: 'Native 60 FPS mobile apps built from a single codebase',
       description: 'High-performance iOS and Android applications with offline-first local synchronization, biometric security, and app store automation.',
-      tags: ['React Native', 'Expo', 'Offline Sync', 'App Store CI/CD'],
       metric: '60 FPS Native'
     },
     {
@@ -81,7 +76,6 @@ export default function Services() {
       title: 'Digital Transformation & Advisory',
       tagline: 'Strategic technical direction from senior software architects',
       description: 'We audit legacy systems, eliminate technical debt, optimize cloud spend, and design future-proof architecture roadmaps for leadership.',
-      tags: ['Legacy Modernization', 'Cloud FinOps', 'CTO-as-a-Service', 'Architecture Audit'],
       metric: 'Advisory'
     }
   ];
@@ -89,20 +83,20 @@ export default function Services() {
   // Estimation calculation
   const getEstimate = () => {
     let weeks = 6;
-    let stackName = 'React + Node.js + MongoDB';
+    let stackName = 'Scalable Enterprise Architecture';
 
     if (projectType === 'fullstack') {
       weeks = 8;
-      stackName = 'Full MERN Stack + Express API';
+      stackName = 'High-Performance Web Architecture';
     } else if (projectType === 'cloud') {
       weeks = 5;
-      stackName = 'AWS / GCP + Docker + Kubernetes';
+      stackName = 'Cloud-Native Containerized Infrastructure';
     } else if (projectType === 'ai') {
       weeks = 10;
-      stackName = 'MERN + Python FastAPI + Vector LLM';
+      stackName = 'Intelligent AI-Powered System';
     } else if (projectType === 'mobile') {
       weeks = 8;
-      stackName = 'React Native + Node.js Microservices';
+      stackName = 'High-Performance Cross-Platform System';
     }
 
     if (platformScale === 'enterprise') {
@@ -236,15 +230,6 @@ export default function Services() {
                   <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.62, marginBottom: '1.35rem' }}>
                     {srv.description}
                   </p>
-
-                  {/* Deliverable Tags Pills */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.75rem' }}>
-                    {srv.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="value-pill">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
 
                 {/* Direct Action Link */}

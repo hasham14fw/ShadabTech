@@ -20,42 +20,38 @@ import NetworkBackground from '../components/NetworkBackground';
 import SectionHeader from '../components/SectionHeader';
 
 export default function Home() {
-  // Concise, High-Value & Attractive Services
+  // Concise, High-Value & Attractive Services (No tech-stack badging clutter)
   const services = [
     {
       id: 'fullstack',
       icon: Code2,
       title: 'Full-Stack Web Engineering',
-      desc: 'High-performance React & Node.js web platforms engineered for sub-second page loads and seamless scale.',
+      desc: 'High-performance web platforms engineered for sub-second page loads, intuitive UX, and seamless enterprise scale.',
       metric: '< 10ms Latency',
-      tags: ['React 18', 'Node.js', 'MongoDB', 'GraphQL'],
       link: '/services'
     },
     {
       id: 'cloud',
       icon: Cloud,
       title: 'Cloud Infrastructure & DevOps',
-      desc: 'Immutable multi-cloud architectures with Kubernetes clustering, Terraform automation, and zero-downtime CI/CD.',
+      desc: 'Resilient multi-cloud architectures with automated scaling, infrastructure as code, and zero-downtime deployment pipelines.',
       metric: '99.99% Uptime',
-      tags: ['AWS & GCP', 'Docker', 'Kubernetes', 'CI/CD'],
       link: '/services'
     },
     {
       id: 'ai',
       icon: Cpu,
       title: 'AI & Cognitive Automation',
-      desc: 'Integrating custom LLMs, autonomous agent bots, and real-time predictive analytics into core business workflows.',
+      desc: 'Integrating custom intelligent models, autonomous task agents, and real-time predictive analytics into core workflows.',
       metric: '10x Speedup',
-      tags: ['Vector DBs', 'Custom Agents', 'Predictive AI', 'RAG'],
       link: '/services'
     },
     {
       id: 'security',
       icon: ShieldCheck,
       title: 'Cybersecurity & Zero-Trust',
-      desc: 'Bank-grade defense architectures with end-to-end data encryption, automated vulnerability auditing, and SOC2 readiness.',
+      desc: 'Bank-grade defense architectures with end-to-end data encryption, continuous vulnerability auditing, and compliance readiness.',
       metric: 'Bank-Grade',
-      tags: ['Zero-Trust', 'AES-256', 'OAuth2 / SAML', 'SOC2'],
       link: '/services'
     }
   ];
@@ -334,14 +330,6 @@ export default function Home() {
                     {srv.desc}
                   </p>
 
-                  {/* Deliverable Tags Pills */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.75rem' }}>
-                    {srv.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="value-pill">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
 
                 {/* Direct Action Link */}
