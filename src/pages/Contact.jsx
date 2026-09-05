@@ -9,7 +9,6 @@ import {
   ChevronDown, 
   ChevronUp, 
   Sparkles, 
-  ShieldCheck, 
   MessageSquare,
   Calendar
 } from 'lucide-react';
@@ -202,23 +201,6 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Security & Confidentiality Guarantee */}
-              <div 
-                style={{
-                  padding: '1.15rem',
-                  borderRadius: '0.85rem',
-                  background: 'rgba(16, 185, 129, 0.08)',
-                  border: '1px solid rgba(16, 185, 129, 0.25)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem'
-                }}
-              >
-                <ShieldCheck size={26} color="#10B981" />
-                <div style={{ fontSize: '0.85rem', color: '#065F46', lineHeight: 1.5 }}>
-                  <strong>NDA First Policy:</strong> We treat all project ideas, blueprints, and data with strict legal confidentiality.
-                </div>
-              </div>
             </div>
 
             {/* Right Column: Interactive Proposal & Contact Form */}
