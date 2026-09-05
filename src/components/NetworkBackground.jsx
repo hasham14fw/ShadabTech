@@ -10,9 +10,9 @@ import React, { useEffect, useRef } from 'react';
  */
 export default function NetworkBackground({ 
   theme = 'light', // 'light' or 'dark'
-  nodeCount = 65, 
+  nodeCount = 38, 
   interactive = true,
-  opacity = 0.85
+  opacity = 0.65
 }) {
   const canvasRef = useRef(null);
 
@@ -28,15 +28,14 @@ export default function NetworkBackground({
     // Color definitions based on theme
     const isDark = theme === 'dark';
     const nodeColor = isDark ? '#00E5FF' : '#0062FF';
-    const secondaryNodeColor = isDark ? '#38BDF8' : '#00C2FF';
+    const secondaryNodeColor = isDark ? '#38BDF8' : '#3B82F6';
     const lineColor = isDark ? '0, 229, 255' : '0, 98, 255';
-    const packetColor = '#00F0FF';
 
     // Track mouse position
     const mouse = {
       x: null,
       y: null,
-      radius: 160,
+      radius: 120,
       active: false
     };
 
@@ -58,42 +57,37 @@ export default function NetworkBackground({
       document.addEventListener('mouseleave', handleMouseLeave);
     }
 
-    // Node class
+    // Node class with calm, gentle drift
     class Node {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.75;
-        this.vy = (Math.random() - 0.5) * 0.75;
-        this.radius = Math.random() * 2.5 + 1.5;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.radius = Math.random() * 1.5 + 1.2;
         this.baseRadius = this.radius;
-        this.isSpecial = Math.random() > 0.8;
+        this.isSpecial = Math.random() > 0.85;
       }
 
       update() {
         this.x += this.vx;
         this.y += this.vy;
 
-        // Bounce off edges with soft pad
+        // Bounce off edges softly
         if (this.x < 0 || this.x > width) this.vx *= -1;
         if (this.y < 0 || this.y > height) this.vy *= -1;
 
-        // Mouse interaction
+        // Gentle mouse interaction
         if (mouse.active && mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < mouse.radius) {
-            const force = (1 - dist / mouse.radius) * 1.5;
+            const force = (1 - dist / mouse.radius) * 0.8;
             this.x += (dx / dist) * force;
             this.y += (dy / dist) * force;
-            this.radius = this.baseRadius + (1 - dist / mouse.radius) * 2;
-          } else {
-            this.radius = this.baseRadius;
           }
-        } else {
-          this.radius = this.baseRadius;
         }
       }
 
@@ -101,55 +95,20 @@ export default function NetworkBackground({
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = this.isSpecial ? secondaryNodeColor : nodeColor;
-        ctx.shadowBlur = this.isSpecial ? 8 : 4;
-        ctx.shadowColor = isDark ? '#00E5FF' : 'rgba(0, 98, 255, 0.4)';
         ctx.fill();
-        ctx.shadowBlur = 0; // reset
-      }
-    }
-
-    // Traveling packet simulation
-    class Packet {
-      constructor(nodeA, nodeB) {
-        this.nodeA = nodeA;
-        this.nodeB = nodeB;
-        this.progress = 0;
-        this.speed = Math.random() * 0.015 + 0.008;
-        this.completed = false;
-      }
-
-      update() {
-        this.progress += this.speed;
-        if (this.progress >= 1) {
-          this.completed = true;
-        }
-      }
-
-      draw() {
-        const currentX = this.nodeA.x + (this.nodeB.x - this.nodeA.x) * this.progress;
-        const currentY = this.nodeA.y + (this.nodeB.y - this.nodeA.y) * this.progress;
-
-        ctx.beginPath();
-        ctx.arc(currentX, currentY, 2.2, 0, Math.PI * 2);
-        ctx.fillStyle = packetColor;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = '#00F0FF';
-        ctx.fill();
-        ctx.shadowBlur = 0;
       }
     }
 
     // Initialize nodes
-    const actualNodeCount = Math.min(nodeCount, Math.floor((width * height) / 14000));
+    const actualNodeCount = Math.min(nodeCount, Math.floor((width * height) / 18000));
     const nodes = Array.from({ length: actualNodeCount }, () => new Node());
-    const packets = [];
-    const maxDistance = 140;
+    const maxDistance = 125;
 
     // Animation Loop
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Connect nodes
+      // Connect nodes with soft, elegant lines
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -157,46 +116,31 @@ export default function NetworkBackground({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDistance) {
-            const alpha = (1 - dist / maxDistance) * (isDark ? 0.35 : 0.22);
+            const alpha = (1 - dist / maxDistance) * (isDark ? 0.2 : 0.1);
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.strokeStyle = `rgba(${lineColor}, ${alpha})`;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 0.85;
             ctx.stroke();
-
-            // Spawn data packets occasionally on strong connections
-            if (Math.random() < 0.0007 && packets.length < 8) {
-              packets.push(new Packet(nodes[i], nodes[j]));
-            }
           }
         }
 
-        // Connect to mouse cursor
+        // Connect to mouse cursor gently
         if (mouse.active && mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - nodes[i].x;
           const dy = mouse.y - nodes[i].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < mouse.radius) {
-            const alpha = (1 - dist / mouse.radius) * 0.5;
+            const alpha = (1 - dist / mouse.radius) * 0.25;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = isDark ? `rgba(0, 229, 255, ${alpha})` : `rgba(0, 98, 255, ${alpha})`;
-            ctx.lineWidth = 1.2;
+            ctx.strokeStyle = `rgba(${lineColor}, ${alpha})`;
+            ctx.lineWidth = 1;
             ctx.stroke();
           }
-        }
-      }
-
-      // Update & draw packets
-      for (let k = packets.length - 1; k >= 0; k--) {
-        const p = packets[k];
-        p.update();
-        p.draw();
-        if (p.completed) {
-          packets.splice(k, 1);
         }
       }
 

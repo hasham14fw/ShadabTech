@@ -212,7 +212,7 @@ export default function Services() {
       </section>
 
       {/* ========================================================
-          SERVICES CATALOG (Alternating 2-Part Layout)
+          SERVICES CATALOG (Clean, Simple & Modern Grid)
           ======================================================== */}
       <section className="section-py" style={{ background: '#FFFFFF' }}>
         <div className="container">
@@ -222,128 +222,92 @@ export default function Services() {
             subtitle="Enterprise-grade software engineering, cloud infrastructure, and intelligent automation built to scale."
           />
 
-          {/* Alternating 2-Part Services List */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem', marginTop: '1rem' }}>
-            {services.map((srv, idx) => {
-              const isEven = idx % 2 === 0;
-
-              // Part 1: Content (Detailed description, key deliverables, tech tags, CTA)
-              const contentPart = (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span className="tech-badge" style={{ fontSize: '0.78rem' }}>
-                      Capability 0{idx + 1}
+          {/* Clean 2-Column Grid of Comprehensive Service Cards */}
+          <div 
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+              gap: '2rem', 
+              marginTop: '1.5rem' 
+            }}
+          >
+            {services.map((srv, idx) => (
+              <div 
+                key={srv.id}
+                className="simple-card"
+                style={{
+                  padding: 'clamp(1.75rem, 4vw, 2.5rem)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  height: '100%'
+                }}
+              >
+                <div>
+                  {/* Card Header: Icon + Number */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+                    <div 
+                      style={{
+                        width: '52px',
+                        height: '52px',
+                        borderRadius: '12px',
+                        background: 'rgba(0, 98, 255, 0.08)',
+                        color: 'var(--primary)',
+                        border: '1px solid rgba(0, 98, 255, 0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      <srv.icon size={26} />
+                    </div>
+                    <span className="tech-badge" style={{ fontSize: '0.76rem' }}>
+                      Service 0{idx + 1}
                     </span>
                   </div>
 
-                  <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.72, margin: 0 }}>
+                  {/* Title & Tagline */}
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.5rem', lineHeight: 1.25 }}>
+                    {srv.title}
+                  </h3>
+                  <p style={{ fontSize: '0.92rem', color: 'var(--primary)', fontWeight: 600, marginBottom: '1rem' }}>
+                    {srv.tagline}
+                  </p>
+
+                  {/* Detailed Description */}
+                  <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.65, marginBottom: '1.5rem' }}>
                     {srv.description}
                   </p>
 
-                  {/* Features / Deliverables Checklist */}
-                  <div>
-                    <div style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.75rem' }}>
-                      Key Architectural Specifications
+                  {/* Key Specifications Checklist */}
+                  <div style={{ marginBottom: '1.5rem' }}>
+                    <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.75rem' }}>
+                      Key Deliverables
                     </div>
                     <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem', padding: 0, margin: 0 }}>
                       {srv.features.slice(0, 4).map((feat, fIdx) => (
-                        <li key={fIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.92rem', color: '#334155' }}>
-                          <div style={{ marginTop: '0.15rem', color: '#0062FF', flexShrink: 0 }}>
-                            <CheckCircle2 size={16} />
-                          </div>
+                        <li key={fIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.88rem', color: '#334155' }}>
+                          <CheckCircle2 size={15} color="#0062FF" style={{ marginTop: '0.2rem', flexShrink: 0 }} />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-              );
 
-              // Part 2: Service Card (Icon, Name, 2 Lines Description)
-              const serviceCardPart = (
-                <div 
-                  className="glass-card"
-                  style={{
-                    padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.25rem)',
-                    borderRadius: '1.5rem',
-                    background: 'linear-gradient(145deg, #FFFFFF 0%, #F0F6FE 100%)',
-                    border: '1.5px solid rgba(0, 98, 255, 0.2)',
-                    boxShadow: '0 12px 35px rgba(0, 98, 255, 0.08)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    justifyContent: 'center',
-                    position: 'relative'
-                  }}
-                >
-                  {/* Icon */}
-                  <div 
-                    style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '14px',
-                      background: 'rgba(0, 98, 255, 0.09)',
-                      color: 'var(--primary)',
-                      border: '1px solid rgba(0, 98, 255, 0.25)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '1.25rem',
-                      boxShadow: '0 6px 18px rgba(0, 98, 255, 0.12)'
-                    }}
+                {/* Direct Action Link */}
+                <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '1.25rem', marginTop: 'auto' }}>
+                  <Link 
+                    to="/contact"
+                    className="btn btn-secondary"
+                    style={{ width: '100%', padding: '0.7rem', fontSize: '0.9rem' }}
                   >
-                    <srv.icon size={28} />
-                  </div>
-
-                  {/* Name */}
-                  <h3 style={{ fontSize: 'clamp(1.25rem, 3.5vw, 1.5rem)', fontWeight: 800, color: '#0F172A', lineHeight: 1.25, marginBottom: '0.65rem' }}>
-                    {srv.title}
-                  </h3>
-
-                  {/* 2 lines description */}
-                  <p 
-                    style={{ 
-                      fontSize: '0.94rem', 
-                      color: '#475569', 
-                      lineHeight: 1.6, 
-                      margin: 0,
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden'
-                    }}
-                  >
-                    {srv.tagline}
-                  </p>
+                    <span>Consult on This Service</span>
+                    <ArrowRight size={15} />
+                  </Link>
                 </div>
-              );
-
-              return (
-                <div 
-                  key={srv.id}
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-                    gap: 'clamp(1.5rem, 4vw, 3.5rem)',
-                    alignItems: 'center',
-                    paddingBottom: idx === services.length - 1 ? 0 : '3rem',
-                    borderBottom: idx === services.length - 1 ? 'none' : '1px solid #E2E8F0'
-                  }}
-                >
-                  {isEven ? (
-                    <>
-                      {contentPart}
-                      {serviceCardPart}
-                    </>
-                  ) : (
-                    <>
-                      {serviceCardPart}
-                      {contentPart}
-                    </>
-                  )}
-                </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>
