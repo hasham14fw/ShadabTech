@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
-  Sparkles, 
   Code2, 
   Cloud, 
   Cpu, 
@@ -139,14 +138,6 @@ export default function Home() {
 
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
-
-            {/* Eyebrow Badge */}
-            <div style={{ marginBottom: '1.25rem' }}>
-              <span className="tech-badge" style={{ fontSize: '0.8rem', padding: '0.4rem 1rem' }}>
-                <Sparkles size={14} color="var(--primary)" />
-                Next-Gen Software & Cloud Engineering
-              </span>
-            </div>
 
             {/* Main Headline */}
             <h1 
