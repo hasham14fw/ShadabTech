@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -12,72 +12,93 @@ import {
   Star, 
   Server, 
   Activity, 
-  RotateCw, 
-  ChevronRight
+  Zap,
+  Workflow,
+  Rocket
 } from 'lucide-react';
 import NetworkBackground from '../components/NetworkBackground';
 import SectionHeader from '../components/SectionHeader';
 
 export default function Home() {
-  const capabilities = [
+  // Concise, High-Value & Attractive Services
+  const services = [
     {
-      id: 'mern',
+      id: 'fullstack',
       icon: Code2,
-      title: 'Full-Stack MERN Solutions',
-      summary: 'High-throughput, reactive applications built on MongoDB, Express.js, React, and Node.js with pixel-perfect responsiveness.',
-      badge: 'Core Specialty',
-      metric: 'Sub-10ms Latency',
-      highlights: [
-        'Modular React frontend with fluid responsiveness',
-        'High-concurrency Express REST & GraphQL gateway',
-        'Optimized MongoDB schema indexing & replica sets'
-      ],
+      title: 'Full-Stack Web Engineering',
+      desc: 'High-performance React & Node.js web platforms engineered for sub-second page loads and seamless scale.',
+      metric: '< 10ms Latency',
+      tags: ['React 18', 'Node.js', 'MongoDB', 'GraphQL'],
       link: '/services'
     },
     {
       id: 'cloud',
       icon: Cloud,
       title: 'Cloud Infrastructure & DevOps',
-      summary: 'Automated CI/CD pipelines, container orchestration, Kubernetes clustering, and serverless multi-cloud deployments.',
-      badge: 'High Reliability',
+      desc: 'Immutable multi-cloud architectures with Kubernetes clustering, Terraform automation, and zero-downtime CI/CD.',
       metric: '99.99% Uptime',
-      highlights: [
-        'Kubernetes clustering with automated autoscaling',
-        'Zero-downtime blue/green deployment pipelines',
-        'Infrastructure as Code (Terraform) across multi-cloud'
-      ],
+      tags: ['AWS & GCP', 'Docker', 'Kubernetes', 'CI/CD'],
       link: '/services'
     },
     {
       id: 'ai',
       icon: Cpu,
-      title: 'AI & Cognitive Engineering',
-      summary: 'Embedding modern generative AI, autonomous agent workflows, and predictive analytics engines directly into business ecosystems.',
-      badge: 'Next-Gen',
-      metric: '10x Automation Speed',
-      highlights: [
-        'Custom LLM integrations with Vector DBs',
-        'Autonomous task planning and multi-agent execution',
-        'Predictive analytics, forecasting, and anomaly detection'
-      ],
+      title: 'AI & Cognitive Automation',
+      desc: 'Integrating custom LLMs, autonomous agent bots, and real-time predictive analytics into core business workflows.',
+      metric: '10x Speedup',
+      tags: ['Vector DBs', 'Custom Agents', 'Predictive AI', 'RAG'],
       link: '/services'
     },
     {
       id: 'security',
       icon: ShieldCheck,
       title: 'Cybersecurity & Zero-Trust',
-      summary: 'Enterprise-grade encryption, vulnerability penetration testing, compliance governance, and resilient threat-mitigation protocols.',
-      badge: 'Bank-Grade',
-      metric: 'Zero-Trust Protocol',
-      highlights: [
-        'Zero-Trust Network Access with OAuth2 / SAML',
-        'End-to-end cryptographic encryption (AES-256)',
-        'SOC2 Type II and GDPR engineering readiness'
-      ],
+      desc: 'Bank-grade defense architectures with end-to-end data encryption, automated vulnerability auditing, and SOC2 readiness.',
+      metric: 'Bank-Grade',
+      tags: ['Zero-Trust', 'AES-256', 'OAuth2 / SAML', 'SOC2'],
       link: '/services'
     }
   ];
 
+  // 3 Core Pillars (Why Shadab Tech)
+  const pillars = [
+    {
+      icon: Zap,
+      title: 'Architectural Precision',
+      desc: 'Clean, decoupled codebases engineered with zero technical debt, high cohesion, and infinite horizontal scalability.'
+    },
+    {
+      icon: Activity,
+      title: 'Cloud-Native Speed',
+      desc: 'Automated CI/CD pipelines, container orchestration, and instant autoscaling for sub-second user latency.'
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Security by Default',
+      desc: 'Zero-Trust verification on every API request, end-to-end cryptographic encryption, and enterprise compliance.'
+    }
+  ];
+
+  // 3-Step Delivery Framework
+  const steps = [
+    {
+      step: '01',
+      title: 'Discovery & System Design',
+      desc: 'We analyze your core business objectives, identify bottlenecks, and engineer an immutable technical blueprint.'
+    },
+    {
+      step: '02',
+      title: 'Agile Sprints & Staging Previews',
+      desc: 'Bi-weekly sprint deliveries with direct staging environment access, continuous integration, and automated testing.'
+    },
+    {
+      step: '03',
+      title: 'Production Release & 24/7 SLA',
+      desc: 'Zero-downtime deployment, infrastructure telemetry monitoring, and dedicated senior engineering support.'
+    }
+  ];
+
+  // Verified Endorsements
   const testimonials = [
     {
       quote: "Shadab Technologies transformed our legacy architecture into a blazing-fast MERN stack cloud platform. Our system latency dropped by 64% and scalability is effortless.",
@@ -105,29 +126,36 @@ export default function Home() {
   return (
     <div>
       {/* ========================================================
-          HERO SECTION (Clean, Modern, Simple & Understandable)
+          1. HERO SECTION (High-Impact, Clean & Focused)
           ======================================================== */}
       <section 
         style={{
           position: 'relative',
-          padding: '7.5rem 0 4.5rem 0',
-          minHeight: '82vh',
+          padding: '7.5rem 0 4rem 0',
+          minHeight: '80vh',
           display: 'flex',
           alignItems: 'center',
           background: 'linear-gradient(180deg, #FFFFFF 0%, #F6F9FE 100%)',
           overflow: 'hidden'
         }}
       >
-        {/* Subtle, Calm HTML5 Canvas Network Background */}
-        <NetworkBackground theme="light" nodeCount={36} opacity={0.65} />
+        <NetworkBackground theme="light" nodeCount={35} opacity={0.6} />
 
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
 
-            {/* Main Headline - Confident, Clean & Clear */}
+            {/* Eyebrow Badge */}
+            <div style={{ marginBottom: '1.25rem' }}>
+              <span className="tech-badge" style={{ fontSize: '0.8rem', padding: '0.4rem 1rem' }}>
+                <Sparkles size={14} color="var(--primary)" />
+                Next-Gen Software & Cloud Engineering
+              </span>
+            </div>
+
+            {/* Main Headline */}
             <h1 
               style={{
-                fontSize: 'clamp(2.1rem, 4.2vw, 3.25rem)',
+                fontSize: 'clamp(2.1rem, 4.2vw, 3.3rem)',
                 fontWeight: 800,
                 color: '#0F172A',
                 marginBottom: '1.25rem',
@@ -135,8 +163,7 @@ export default function Home() {
                 letterSpacing: '-0.025em'
               }}
             >
-              Architecting High-Performance{' '}
-              <span className="gradient-text">Cloud, AI & Software</span> Systems.
+              We Build Scalable Software That Powers <span className="gradient-text">High-Growth Companies</span>.
             </h1>
 
             {/* Subtitle */}
@@ -146,14 +173,14 @@ export default function Home() {
                 color: '#475569',
                 lineHeight: 1.68,
                 marginBottom: '2.25rem',
-                maxWidth: '680px',
+                maxWidth: '660px',
                 margin: '0 auto 2.25rem auto'
               }}
             >
-              Shadab Technologies designs, builds, and manages enterprise-grade web applications, scalable cloud infrastructure, and intelligent automation systems.
+              From high-throughput MERN applications to resilient multi-cloud architectures and AI automation, Shadab Technologies turns complex blueprints into production reality.
             </p>
 
-            {/* Simple, Clear Call to Actions */}
+            {/* Primary Action Buttons */}
             <div 
               style={{ 
                 display: 'flex', 
@@ -166,22 +193,21 @@ export default function Home() {
             >
               <Link to="/contact" className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '0.98rem' }}>
                 <Sparkles size={17} />
-                <span>Let's Connect</span>
+                <span>Start a Project</span>
                 <ArrowRight size={17} />
               </Link>
               <Link to="/services" className="btn btn-secondary" style={{ padding: '0.85rem 2rem', fontSize: '0.98rem' }}>
                 <Layers size={17} />
-                <span>Explore Services</span>
+                <span>Explore Solutions</span>
               </Link>
             </div>
 
-            {/* Clean Metrics Bar (Simple, Readable, 2x2 on Mobile, 4x1 on Desktop) */}
+            {/* Clean Metrics Bar */}
             <div 
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                gap: '1rem',
-                marginTop: '1rem'
+                gap: '1rem'
               }}
             >
               {[
@@ -227,17 +253,17 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          CORE CAPABILITIES SECTION (Clean, Simple, Directly Legible)
+          2. CORE SERVICES (Less Content, Highly Valuable, Attractive)
           ======================================================== */}
-      <section className="section-py" style={{ background: '#FFFFFF', position: 'relative' }}>
+      <section className="section-py" style={{ background: '#FFFFFF' }}>
         <div className="container">
           <SectionHeader 
             badge="Core Capabilities"
             title="Engineered for Exponential Scale"
-            subtitle="Explore our specialized engineering offerings and architectural solutions."
+            subtitle="Explore our specialized engineering offerings designed for enterprise speed, security, and velocity."
           />
 
-          {/* Clean, Simple & Modern Capabilities Cards Grid */}
+          {/* Attractive, Concise Service Cards Grid */}
           <div 
             style={{
               display: 'grid',
@@ -245,18 +271,19 @@ export default function Home() {
               gap: '1.75rem'
             }}
           >
-            {capabilities.map((cap) => (
+            {services.map((srv) => (
               <div 
-                key={cap.id}
-                className="simple-card"
+                key={srv.id}
+                className="feature-card"
+                style={{ height: '100%' }}
               >
                 <div>
-                  {/* Header with Icon & Metric Pill */}
+                  {/* Top: Icon + Metric Pill */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
                     <div 
                       style={{
-                        width: '48px',
-                        height: '48px',
+                        width: '50px',
+                        height: '50px',
                         borderRadius: '12px',
                         background: 'rgba(0, 98, 255, 0.08)',
                         color: 'var(--primary)',
@@ -266,7 +293,7 @@ export default function Home() {
                         justifyContent: 'center'
                       }}
                     >
-                      <cap.icon size={24} />
+                      <srv.icon size={26} />
                     </div>
                     <span 
                       style={{
@@ -279,7 +306,7 @@ export default function Home() {
                         border: '1px solid rgba(191, 219, 254, 0.7)'
                       }}
                     >
-                      {cap.metric}
+                      {srv.metric}
                     </span>
                   </div>
 
@@ -292,38 +319,35 @@ export default function Home() {
                       marginBottom: '0.65rem' 
                     }}
                   >
-                    {cap.title}
+                    {srv.title}
                   </h3>
 
-                  {/* Summary */}
+                  {/* High-Value, Punchy Description */}
                   <p 
                     style={{ 
                       fontSize: '0.92rem', 
                       color: '#475569', 
                       lineHeight: '1.62',
-                      marginBottom: '1.35rem' 
+                      marginBottom: '1.25rem' 
                     }}
                   >
-                    {cap.summary}
+                    {srv.desc}
                   </p>
 
-                  {/* Highlights Checklist */}
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem', padding: 0, marginBottom: '1.75rem' }}>
-                    {cap.highlights.map((h, hIdx) => (
-                      <li key={hIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.86rem', color: '#334155' }}>
-                        <div style={{ marginTop: '0.15rem', color: '#0062FF', flexShrink: 0 }}>
-                          <CheckCircle2 size={15} />
-                        </div>
-                        <span>{h}</span>
-                      </li>
+                  {/* Deliverable Tags Pills */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.75rem' }}>
+                    {srv.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="value-pill">
+                        {tag}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                {/* Clean Button */}
+                {/* Direct Action Link */}
                 <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '1.15rem' }}>
                   <Link 
-                    to={cap.link}
+                    to={srv.link}
                     className="btn btn-secondary"
                     style={{ width: '100%', padding: '0.65rem', fontSize: '0.88rem' }}
                   >
@@ -338,29 +362,115 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          TESTIMONIALS & TRUST (Responsive Grid)
+          3. WHY SHADAB TECH (3 Core Engineering Pillars)
+          ======================================================== */}
+      <section className="section-py" style={{ background: '#F8FAFC' }}>
+        <div className="container">
+          <SectionHeader 
+            badge="The Shadab Advantage"
+            title="Why Forward-Thinking Leaders Choose Us"
+            subtitle="We blend architectural discipline with startup execution velocity to deliver durable software systems."
+          />
+
+          <div 
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.75rem'
+            }}
+          >
+            {pillars.map((p, idx) => (
+              <div 
+                key={idx}
+                className="clean-card"
+                style={{ padding: '2rem' }}
+              >
+                <div 
+                  style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '10px',
+                    background: 'rgba(0, 98, 255, 0.08)',
+                    color: 'var(--primary)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '1.25rem'
+                  }}
+                >
+                  <p.icon size={24} />
+                </div>
+
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.65rem' }}>
+                  {p.title}
+                </h3>
+
+                <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.62 }}>
+                  {p.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          4. HOW WE DELIVER (Simple 3-Step Framework)
+          ======================================================== */}
+      <section className="section-py" style={{ background: '#FFFFFF' }}>
+        <div className="container">
+          <SectionHeader 
+            badge="Delivery Blueprint"
+            title="How We Turn Visions Into Reality"
+            subtitle="A streamlined, transparent engagement process with zero guesswork or agency bloat."
+          />
+
+          <div 
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.75rem'
+            }}
+          >
+            {steps.map((st, idx) => (
+              <div key={idx} className="step-card">
+                <div className="step-number">{st.step}</div>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.65rem' }}>
+                  {st.title}
+                </h3>
+                <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.62 }}>
+                  {st.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          5. CLIENT TESTIMONIALS & TRUST
           ======================================================== */}
       <section className="section-py" style={{ background: '#F8FAFC' }}>
         <div className="container">
           <SectionHeader 
             badge="Client Endorsements"
-            title="Trusted by Forward-Thinking Leaders"
+            title="Trusted by Modern Engineering Teams"
             subtitle="Discover what engineering executives and founders say about collaborating with Shadab Technologies."
           />
 
           <div 
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: '1.25rem'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.5rem'
             }}
           >
             {testimonials.map((testi, i) => (
               <div 
                 key={i}
-                className="glass-card"
+                className="clean-card"
                 style={{
-                  padding: 'clamp(1.5rem, 4vw, 2.25rem)',
+                  padding: 'clamp(1.5rem, 4vw, 2rem)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -413,25 +523,22 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          BOTTOM CALL TO ACTION BANNER (Responsive Padding)
+          6. BOTTOM CALL TO ACTION BANNER
           ======================================================== */}
       <section style={{ padding: '0 0 5rem 0', background: '#F8FAFC' }}>
         <div className="container">
           <div 
             style={{
               background: 'linear-gradient(135deg, #0A1435 0%, #060B1E 100%)',
-              borderRadius: '1.75rem',
+              borderRadius: '1.5rem',
               padding: 'clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem)',
               textAlign: 'center',
               position: 'relative',
               overflow: 'hidden',
               border: '1px solid rgba(0, 229, 255, 0.3)',
-              boxShadow: '0 25px 60px rgba(0, 98, 255, 0.22)'
+              boxShadow: '0 25px 60px rgba(0, 98, 255, 0.2)'
             }}
           >
-            {/* Ambient glow in banner */}
-            <div className="glow-orb" style={{ top: '-40%', left: '30%', width: '380px', height: '380px', background: 'rgba(0, 98, 255, 0.28)' }} />
-            
             <div style={{ position: 'relative', zIndex: 2, maxWidth: '640px', margin: '0 auto' }}>
               <span className="tech-badge tech-badge-cyan" style={{ marginBottom: '1.15rem' }}>
                 <Sparkles size={13} /> Ready To Elevate Your Tech?
@@ -450,7 +557,7 @@ export default function Home() {
               </h2>
 
               <p style={{ color: '#94A3B8', fontSize: '1rem', lineHeight: '1.65', marginBottom: '2.25rem' }}>
-                Whether you need a complete MERN stack web app, cloud migration, or specialized AI integration, our senior engineers are ready.
+                Whether you need a full MERN application, multi-cloud DevOps setup, or custom AI agent integration, our engineers are ready.
               </p>
 
               <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>

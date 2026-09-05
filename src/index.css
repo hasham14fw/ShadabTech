@@ -505,20 +505,86 @@ a {
 }
 
 /* Clean Service Card utility */
-.simple-card {
+.simple-card, .feature-card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  border-radius: 1rem;
-  padding: clamp(1.5rem, 3.5vw, 2rem);
+  border-radius: 1.15rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-  transition: all 0.25s ease;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
 }
 
-.simple-card:hover {
+.simple-card:hover, .feature-card:hover {
   transform: translateY(-4px);
   border-color: rgba(0, 98, 255, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 98, 255, 0.09);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0062FF, #00E5FF);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Compact Value Tag Pills */
+.value-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: #F1F5F9;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid #E2E8F0;
+  transition: all 0.2s ease;
+}
+
+.feature-card:hover .value-pill {
+  background: #EFF6FF;
+  color: #0062FF;
+  border-color: rgba(0, 98, 255, 0.2);
+}
+
+/* Step Process Card */
+.step-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1.15rem;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.step-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 98, 255, 0.35);
   box-shadow: 0 12px 28px rgba(0, 98, 255, 0.08);
+}
+
+.step-number {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, #0062FF 0%, #00E5FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.85rem;
 }

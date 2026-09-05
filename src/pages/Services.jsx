@@ -34,103 +34,55 @@ export default function Services() {
       id: 'mern-dev',
       icon: Code2,
       title: 'Full-Stack MERN Engineering',
-      tagline: 'High-concurrency, responsive web systems powered by React & Node.js',
-      description: 'We build end-to-end web applications leveraging the power of MongoDB, Express.js, React, and Node.js. Designed with component reusability, server-side caching, and intuitive reactive user interfaces that scale to millions of concurrent users.',
-      features: [
-        'Custom Single Page & Multi-Page React Applications',
-        'High-Throughput Node.js / Express REST & GraphQL APIs',
-        'Optimized MongoDB Schema Design & Indexing',
-        'State Management with Redux Toolkit or Zustand',
-        'Micro-Frontend & Component Library Architecture',
-        'Sub-second Page Load Speeds and Core Web Vitals Optimization'
-      ],
-      tech: ['React 18', 'Node.js', 'Express', 'MongoDB', 'TypeScript', 'Vite', 'Redux'],
-      deliverables: 'Production-ready web application, full test suite, automated Docker configs, and architecture documentation.'
+      tagline: 'High-concurrency web systems powered by React 18 & Node.js',
+      description: 'We engineer fast, scalable web applications with sub-second page loads, modular component systems, and resilient database clustering.',
+      tags: ['React 18', 'Node.js API', 'MongoDB Replica', 'Zustand/Redux'],
+      metric: '< 10ms Latency'
     },
     {
       id: 'cloud-devops',
       icon: Cloud,
       title: 'Cloud Infrastructure & DevOps',
-      tagline: 'Resilient multi-cloud deployments with automated CI/CD pipelines',
-      description: 'Transition from slow, manual deployments to fully automated, immutable infrastructure. We architect containerized ecosystems on AWS and Google Cloud with Kubernetes, ensuring your platform never goes down under sudden traffic spikes.',
-      features: [
-        'Container Orchestration with Docker & Kubernetes (EKS/GKE)',
-        'Zero-Downtime CI/CD Pipelines (GitHub Actions, GitLab CI)',
-        'Infrastructure as Code using Terraform & Pulumi',
-        'Automated Serverless Functions (AWS Lambda, Cloud Run)',
-        'Distributed Caching with Redis & Edge CDN Optimization',
-        'Real-time Observability & Telemetry (Prometheus, Grafana, Datadog)'
-      ],
-      tech: ['AWS', 'Google Cloud', 'Kubernetes', 'Docker', 'Terraform', 'GitHub Actions'],
-      deliverables: 'Fully automated deployment pipeline, self-healing cluster configuration, and monitoring dashboards.'
+      tagline: 'Automated multi-cloud deployments with zero downtime',
+      description: 'We architect containerized ecosystems on AWS and Google Cloud with Kubernetes, infrastructure as code, and continuous self-healing monitoring.',
+      tags: ['AWS & GCP', 'Docker & K8s', 'Terraform', 'CI/CD Automation'],
+      metric: '99.99% Uptime'
     },
     {
       id: 'ai-ml',
       icon: Cpu,
-      title: 'AI, LLMs & Machine Learning',
-      tagline: 'Infusing intelligent cognitive capabilities directly into your workflow',
-      description: 'Supercharge your digital products with artificial intelligence. From retrieval-augmented generation (RAG) knowledge systems to custom fine-tuned neural models and predictive analytics engines.',
-      features: [
-        'Custom LLM Integration with Vector Databases (Pinecone, Chroma)',
-        'Autonomous Agent Workflows & Task Execution Bots',
-        'Predictive Maintenance & Customer Churn Modeling',
-        'Computer Vision & Automated Document Parsing',
-        'Natural Language Semantic Search Engines',
-        'Secure On-Premises & Private Cloud AI Hosting'
-      ],
-      tech: ['Python', 'PyTorch', 'OpenAI APIs', 'Hugging Face', 'LangChain', 'FastAPI'],
-      deliverables: 'Trained or integrated AI pipeline, fine-tuning scripts, evaluation metrics, and API endpoints.'
+      title: 'AI, LLMs & Intelligent Automation',
+      tagline: 'Custom AI agents and cognitive workflows embedded into your product',
+      description: 'Supercharge operations with private vector RAG pipelines, fine-tuned neural models, and autonomous task execution bots.',
+      tags: ['Vector DBs', 'Custom AI Agents', 'RAG Pipelines', 'Predictive Analytics'],
+      metric: '10x Speedup'
     },
     {
       id: 'cybersecurity',
       icon: ShieldCheck,
       title: 'Cybersecurity & Zero-Trust Defense',
-      tagline: 'Impenetrable defense perimeters protecting your data and intellectual property',
-      description: 'Safeguard your applications against sophisticated cyber attacks. We implement bank-grade encryption, role-based access control, security audits, and continuous vulnerability scans.',
-      features: [
-        'Zero-Trust Network Access & Modern Identity Architecture (OAuth2, OIDC)',
-        'End-to-End Cryptographic Protocols (AES-256, TLS 1.3)',
-        'Full-Spectrum Penetration Testing & Vulnerability Assessment',
-        'Automated Secret Management (Vault, AWS Secrets Manager)',
-        'OWASP Top 10 Mitigation & Security Code Reviews',
-        'SOC2 & GDPR Compliance Engineering Readiness'
-      ],
-      tech: ['Zero-Trust', 'Vault', 'OWASP ZAP', 'OAuth2/SAML', 'TLS 1.3', 'SonarQube'],
-      deliverables: 'Comprehensive security audit report, remediation patches, and verified compliance certificate.'
+      tagline: 'Bank-grade security protocols safeguarding enterprise data',
+      description: 'Enforcing identity verification on every request with modern OAuth2, end-to-end AES-256 encryption, and automated vulnerability auditing.',
+      tags: ['Zero-Trust', 'AES-256', 'OAuth2 / SAML', 'SOC2 Readiness'],
+      metric: 'Bank-Grade'
     },
     {
       id: 'mobile-app',
       icon: Smartphone,
       title: 'Cross-Platform Mobile Engineering',
-      tagline: 'Native-feel iOS and Android mobile apps from a unified codebase',
-      description: 'Reach your customers across all devices. We develop high-performance cross-platform mobile apps with seamless 60 FPS transitions, offline-first synchronization, and hardware device integrations.',
-      features: [
-        'Cross-Platform iOS & Android Apps via React Native',
-        'Progressive Web Applications (PWA) with Offline Capabilities',
-        'Biometric Authentication & Native Hardware Sensors',
-        'Push Notifications & Background Job Queues',
-        'In-App Purchases & Payment Gateway Integrations (Stripe, Apple Pay)',
-        'App Store and Google Play Automated Release Pipelines'
-      ],
-      tech: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Native APIs', 'Fastlane'],
-      deliverables: 'Store-published mobile apps, source code repository, and OTA update pipeline.'
+      tagline: 'Native 60 FPS mobile apps built from a single codebase',
+      description: 'High-performance iOS and Android applications with offline-first local synchronization, biometric security, and app store automation.',
+      tags: ['React Native', 'Expo', 'Offline Sync', 'App Store CI/CD'],
+      metric: '60 FPS Native'
     },
     {
       id: 'consulting',
       icon: GitMerge,
       title: 'Digital Transformation & Advisory',
-      tagline: 'Strategic roadmap planning from veteran software architects',
-      description: 'Evaluate your existing tech stack, identify bottlenecks, and plan a high-impact digital transformation roadmap. We assist leadership in making confident, future-proof architectural decisions.',
-      features: [
-        'Legacy Modernization & Monolith-to-Microservices Roadmap',
-        'Database Optimization & Distributed Scaling Analysis',
-        'Engineering Team Best Practices & Agile Sprints Setup',
-        'Cost Optimization for Cloud Infrastructure (FinOps)',
-        'Technical Due Diligence for Investors & M&A',
-        'CTO-as-a-Service Advisory for Rapid Growth Startups'
-      ],
-      tech: ['FinOps', 'Agile', 'Enterprise Architecture', 'Tech Due Diligence'],
-      deliverables: 'Executive technical report, architectural blueprint, and step-by-step migration roadmap.'
+      tagline: 'Strategic technical direction from senior software architects',
+      description: 'We audit legacy systems, eliminate technical debt, optimize cloud spend, and design future-proof architecture roadmaps for leadership.',
+      tags: ['Legacy Modernization', 'Cloud FinOps', 'CTO-as-a-Service', 'Architecture Audit'],
+      metric: 'Advisory'
     }
   ];
 
@@ -222,11 +174,11 @@ export default function Services() {
             subtitle="Enterprise-grade software engineering, cloud infrastructure, and intelligent automation built to scale."
           />
 
-          {/* Clean 2-Column Grid of Comprehensive Service Cards */}
+          {/* Clean 3-Column Grid of Concise & Attractive Service Cards */}
           <div 
             style={{ 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
               gap: '2rem', 
               marginTop: '1.5rem' 
             }}
@@ -234,17 +186,13 @@ export default function Services() {
             {services.map((srv, idx) => (
               <div 
                 key={srv.id}
-                className="simple-card"
+                className="feature-card"
                 style={{
-                  padding: 'clamp(1.75rem, 4vw, 2.5rem)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
                   height: '100%'
                 }}
               >
                 <div>
-                  {/* Card Header: Icon + Number */}
+                  {/* Card Header: Icon + Metric Tag */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
                     <div 
                       style={{
@@ -261,46 +209,50 @@ export default function Services() {
                     >
                       <srv.icon size={26} />
                     </div>
-                    <span className="tech-badge" style={{ fontSize: '0.76rem' }}>
-                      Service 0{idx + 1}
+                    <span 
+                      style={{
+                        fontSize: '0.76rem',
+                        fontWeight: 700,
+                        color: 'var(--primary)',
+                        background: '#EFF6FF',
+                        padding: '0.25rem 0.65rem',
+                        borderRadius: '6px',
+                        border: '1px solid rgba(191, 219, 254, 0.7)'
+                      }}
+                    >
+                      {srv.metric}
                     </span>
                   </div>
 
                   {/* Title & Tagline */}
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.5rem', lineHeight: 1.25 }}>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.45rem', lineHeight: 1.25 }}>
                     {srv.title}
                   </h3>
-                  <p style={{ fontSize: '0.92rem', color: 'var(--primary)', fontWeight: 600, marginBottom: '1rem' }}>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--primary)', fontWeight: 600, marginBottom: '0.95rem' }}>
                     {srv.tagline}
                   </p>
 
-                  {/* Detailed Description */}
-                  <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.65, marginBottom: '1.5rem' }}>
+                  {/* Concise Description */}
+                  <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.62, marginBottom: '1.35rem' }}>
                     {srv.description}
                   </p>
 
-                  {/* Key Specifications Checklist */}
-                  <div style={{ marginBottom: '1.5rem' }}>
-                    <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.75rem' }}>
-                      Key Deliverables
-                    </div>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.55rem', padding: 0, margin: 0 }}>
-                      {srv.features.slice(0, 4).map((feat, fIdx) => (
-                        <li key={fIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.88rem', color: '#334155' }}>
-                          <CheckCircle2 size={15} color="#0062FF" style={{ marginTop: '0.2rem', flexShrink: 0 }} />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Deliverable Tags Pills */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.75rem' }}>
+                    {srv.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="value-pill">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
                 {/* Direct Action Link */}
-                <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '1.25rem', marginTop: 'auto' }}>
+                <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '1.15rem' }}>
                   <Link 
                     to="/contact"
                     className="btn btn-secondary"
-                    style={{ width: '100%', padding: '0.7rem', fontSize: '0.9rem' }}
+                    style={{ width: '100%', padding: '0.7rem', fontSize: '0.88rem' }}
                   >
                     <span>Consult on This Service</span>
                     <ArrowRight size={15} />
